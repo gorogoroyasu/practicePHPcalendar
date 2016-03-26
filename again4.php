@@ -5,13 +5,11 @@ require 'calendar.php';
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8">
-        <title>calendar</title>
+      <meta charset="utf-8">
+      <title>calendar</title>
+      <link href="calendar.css" media="all" rel="stylesheet" />
     </head>
     <body>
-        <p>
-            知りたいカレンダーの西暦と月を入力
-        </p>
         <table>
             <tr>
                 <th>
@@ -62,6 +60,10 @@ require 'calendar.php';
 
              ?>
         </table>
+
+        <p>
+            知りたいカレンダーの西暦と月を入力
+        </p>
 
         <form class="" action="again4.php" method="get">
             <p>西暦<input type="text" name="year" >年</p>

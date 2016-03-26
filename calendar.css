@@ -1,0 +1,6 @@
+tr>td:first-child{
+  color: red;
+}
+tr>td:nth-child(7){
+  color: blue;
+}

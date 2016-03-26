@@ -77,6 +77,7 @@ class Calendar{
         //上記条件に当てはまらない-> うるう年の2月で29日まである
             $this->maxDay = 29;
         }
+        return $this->maxDay;
     }
 
     //その月のはじめの日の値を返す。
@@ -105,29 +106,9 @@ if($month == Null){
 
 $hi = new Calendar($year,$month);
 $hi->whatDayOfTheWeek();
-echo $hi->$startLoop;
 
-
-// echo $hi->setDate(date("Y"));
-// $hi->leapYearCheaker();
-// $hi->currentYear();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+$startLoop = $hi->drawCalendar();
+$numOfDaysInThisMonth = $hi->daysInTheMonth();
+$foldingWhile=1;
 
  ?>

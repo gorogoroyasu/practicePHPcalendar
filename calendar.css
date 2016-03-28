@@ -4,3 +4,7 @@ tr>td:first-child{
 tr>td:nth-child(7){
   color: blue;
 }
+
+.holiday{
+    color: red;
+}

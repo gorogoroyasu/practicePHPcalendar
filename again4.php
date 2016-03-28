@@ -38,18 +38,22 @@ require 'calendar.php';
             <?php
                 while($whatDayIsItToday <= $numOfDaysInThisMonth){
                     // 今日が何日かを示す変数。　今月何日まであるかを示す変数
-                ?><td><?php
+
                     if ($whatDayIsItToday < 1){
-                        echo Null;
-                    }else{
+                        ?><td><?php
+                    }else if($whatDayIsItToday == $cal->idHoliday($chkholiday)){
+                        ?><td class="holiday"><?php
                         echo $whatDayIsItToday;
+                        $chkholiday++;
+                    }else{
+                        ?><td><?php echo $whatDayIsItToday;
                     }
                 $whatDayIsItToday++;
                 $foldingWhile++;
 
 
                 if($foldingWhile%8 == 0){
-                 // カレンダーの折り返しを記述。 
+                 // カレンダーの折り返しを記述。
                     $foldingWhile=1;
                 ?></td>
                 </tr>

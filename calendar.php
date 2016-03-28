@@ -97,11 +97,22 @@ class Calendar{
         $startLoop = 1 - $this->firstDayStatus;
         return $startLoop;
     }
+
+    public function idHoliday($chkholiday){
+    $holidays = HolidayJp::between(new DateTime($this->year.'-'.$this->month.'-1'), new DateTime($this->year.'-'.$this->month.'-'.$this->maxDay));
+
+        while($holidays[$chkholiday]['name_en'] != NULL){
+            $date = $holidays[$chkholiday]['date'];
+            return $date->format('d');
+        }
+    }
+
 }
 
 // 渡ってきたデータを確認
 $year = $_GET['year'];
 $month = $_GET['month'];
+$chkholiday = 0;
 
 // デフォルトは2016年4
 if($year == Null){
@@ -112,6 +123,10 @@ if($month == Null){
 }
 $cal = new Calendar($year,$month);
 
+$chkholiday = 0;
+
+
+
 $whatDayIsItToday = $cal->drawCalendar();
 // 今日が何日かを示す変数。　0以下の場合はNull を返す。
 
@@ -120,16 +135,16 @@ $numOfDaysInThisMonth = $cal->daysInTheMonth();
 
 $foldingWhile=1;
 
+//
+// $holidays = HolidayJp::between(new DateTime($year.'-'.$month.'-1'), new DateTime($year.'-'.$month.'-'.$numOfDaysInThisMonth));
+//
+// $chkholiday = 0;
+//     while($holidays[$chkholiday]['name_en'] != NULL){
+//         $date = $holidays[$chkholiday]['date'];
+//         echo  $date->format('d');
+//
+//     }
 
-
-$holidays = HolidayJp::between(new DateTime(''.$year.'-'.$month.'-1'), new DateTime(''.$year.'-'.$month.'-30'));
-
-
-$chkholiday = 0;
-    while($holidays[$chkholiday]['name_en'] != NULL){
-        echo $holidays[$chkholiday]['name_en'];
-        echo $chkholiday = $chkholiday + 1;
-    }
 
 
  ?>

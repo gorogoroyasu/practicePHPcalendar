@@ -36,18 +36,20 @@ require 'calendar.php';
             </tr>
             <tr>
             <?php
-                while($startLoop < $numOfDaysInThisMonth){
+                while($whatDayIsItToday <= $numOfDaysInThisMonth){
+                    // 今日が何日かを示す変数。　今月何日まであるかを示す変数
                 ?><td><?php
-                    if ($startLoop < 1){
+                    if ($whatDayIsItToday < 1){
                         echo Null;
                     }else{
-                        echo $startLoop;
+                        echo $whatDayIsItToday;
                     }
-                $startLoop++;
+                $whatDayIsItToday++;
                 $foldingWhile++;
 
 
                 if($foldingWhile%8 == 0){
+                 // カレンダーの折り返しを記述。 
                     $foldingWhile=1;
                 ?></td>
                 </tr>
